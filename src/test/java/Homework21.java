@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Homework21 extends BaseTest {
+public class Homework21 extends BaseTest{
 
     String newPlaylistName = "HW 21 - Sample Edited Playlist";
 
@@ -13,7 +13,7 @@ public class Homework21 extends BaseTest {
     @Test
     public void renamePlaylist() throws InterruptedException {
         //Prerequisite at least one user created playlist
-        String updatedPlaylistMsg = "Updated playlist \"GabonHW 21 - Sample Edited Playlist.\"";
+        String updatedPlaylistMsg = "Updated playlist \"HW 21 - Sample Edited Playlist.\"";
 
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
@@ -33,7 +33,7 @@ public class Homework21 extends BaseTest {
         WebElement playlistInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
         //clear() does not work, element has an attribute of "required"
         //workaround is ctrl A (to select all) then backspace to clear then replace with new playlist name
-        playlistInputField.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
+        playlistInputField.sendKeys(Keys.chord(Keys.CONTROL,"A",Keys.BACK_SPACE));
 
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
@@ -43,4 +43,6 @@ public class Homework21 extends BaseTest {
         WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         return notification.getText();
     }
+
+
 }
