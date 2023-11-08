@@ -9,7 +9,7 @@ public class Homework20 extends BaseTest {
     @Test
     public void deletePlaylist() throws InterruptedException{
 
-        //String uniquePlaylist = "1-HW19-Playlist";
+        String uniquePlaylist = "1-HW19-Playlist";
         String deletePlaylistMsg = "Deleted playlist \"1-HW19-Playlist.\"";
 
         //Pre-condition
@@ -32,7 +32,8 @@ public class Homework20 extends BaseTest {
     }
 
     public void clickOnPlaylist(){
-        WebElement playList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));//driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        WebElement playList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists'] //li[contains( . , '1-HW19-Playlist')]")));
+
         playList.click();
     }
 
